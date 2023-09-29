@@ -1,35 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Splendid Food</title>
-    <link rel="stylesheet" href="styles/style.min.css">
-    <link rel="icon" href="../public/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../public/favicon.ico" type="image/ico">
-  </head>
-  <body>
-
-    <div id="app">
-
-      <header class="top-bar spread">
-        <nav class="top-bar-nav">
-          <a href="#" class="top-bar-link">
-            <i class="icofont-spoon-and-fork"></i>
-            <span>Home</span>
-          </a>
-          <a href="views/products.html" class="top-bar-link">
-            <span>Products</span>
-          </a>
-          <a href="views/past-orders.html" class="top-bar-link">
-            <span>Past Orders</span>
-          </a>
-        </nav>
-        <a @click="toggleSideBar" class="top-bar-cart-link">
-          <i class="icofont-cart-alt icofont-1x"></i>
-          <span>Cart ({{ totalQuantity }})</span>
-        </a>
-      </header>
-
-      <div class="splash-container">
+<template>
+  <div class="home">
+    <div class="splash-container">
         <div class="splash">
           <h1>Splendid Food</h1>
         </div>
@@ -83,21 +54,22 @@
         </div>
 
       </main>
+  </div>
+</template>
 
-      <sidebar 
-      v-if="showSideBar" 
-      :toggle="toggleSideBar" 
-      :cart= "cart"
-      :inventory="inventory"
-      :remove="deleteItem"
-      />
+<script>
 
-      <footer>
-      </footer>
+export default {
+  name: 'HomeView',
+  props: ['inventory'],
+  // data () {
+  //   return {
+  //     inventory: food
+  //   }
+  // },
+  components: {
 
-    </div>
-      
-    <script src="https://unpkg.com/vue@next"></script>
-    <script src="app.js"></script>    
-  </body>
-</html>
+  }
+}
+
+</script>
